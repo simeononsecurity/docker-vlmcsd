@@ -6,6 +6,11 @@ RUN apk add --no-cache git make build-base && \
     make
 
 FROM alpine:latest
+
+LABEL org.opencontainers.image.source="https://github.com/simeononsecurity/docker-vlmcsd"
+LABEL org.opencontainers.image.description="vlmcsd is a replacement for Microsoft's KMS server."
+LABEL org.opencontainers.image.authors="simeononsecurity"
+
 COPY --from=builder /root/vlmcsd/bin/vlmcsd /vlmcsd
 RUN apk add --no-cache tzdata
 
