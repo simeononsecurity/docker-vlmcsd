@@ -1,8 +1,8 @@
 # vlmcsd is a replacement for Microsoft's KMS server.
 
-> It contains vlmcs, a KMS test client, mainly for debugging purposes, that also can "charge" a genuine KMS server designed to run on an always-on or often-on device, e.g. router, NAS Box, ...intended to help people who lost activation of their legally-owned licenses, e.g. due to a change of hardware (motherboard, CPU, ...)
+It contains vlmcs, a KMS test client, mainly for debugging purposes, that also can "charge" a genuine KMS server designed to run on an always-on or often-on device, e.g. router, NAS Box, ...intended to help people who lost activation of their legally-owned licenses, e.g. due to a change of hardware (motherboard, CPU, ...)
   
-> vlmcsd is not a one-click activation or crack tool intended to activate illegal copies of software (Windows, Office, Project, Visio)
+### vlmcsd is not a one-click activation or crack tool intended to activate illegal copies of software (Windows, Office, Project, Visio)
 
 ## Info / About this docker
 Docker based in Alpine OS with vlmcsd compiled from "source" (Wind4 GitHub)
@@ -53,7 +53,7 @@ cscript ospp.vbs /dstatusall
 
 ## GVLK keys
 - [Windows](https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys)
-- [Office 2013] https://technet.microsoft.com/en-us/library/dn385360.aspx)
+- [Office 2013](https://technet.microsoft.com/en-us/library/dn385360.aspx)
 - [Office 2016 & 2019 & 2021](https://technet.microsoft.com/en-us/library/dn385360(v=office.16).aspx)
 
 ## Docker Link
