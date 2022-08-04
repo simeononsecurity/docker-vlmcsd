@@ -17,4 +17,3 @@ RUN apk add --no-cache tzdata
 EXPOSE 1688/tcp
 
 CMD ["/vlmcsd", "-D", "-d", "-t", "3", "-e", "-v"]
-
