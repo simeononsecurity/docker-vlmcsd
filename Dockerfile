@@ -12,6 +12,7 @@ LABEL org.opencontainers.image.description="vlmcsd is a replacement for Microsof
 LABEL org.opencontainers.image.authors="simeononsecurity"
 
 COPY --from=builder /root/vlmcsd/bin/vlmcsd /vlmcsd
+COPY --from=builder /root/vlmcsd/etc/vlmcsd.kmd /vlmcsd.kmd
 RUN apk add --no-cache tzdata
 
 EXPOSE 1688/tcp
