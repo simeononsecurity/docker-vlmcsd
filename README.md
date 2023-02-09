@@ -1,5 +1,7 @@
 # vlmcsd is a replacement for Microsoft's KMS server.
 
+[![Docker Image CI](https://github.com/simeononsecurity/docker-vlmcsd/actions/workflows/docker-image.yml/badge.svg)](https://github.com/simeononsecurity/docker-vlmcsd/actions/workflows/docker-image.yml) [![VirusTotal Scan](https://github.com/simeononsecurity/docker-vlmcsd/actions/workflows/virustotal.yml/badge.svg)](https://github.com/simeononsecurity/docker-vlmcsd/actions/workflows/virustotal.yml)
+
 It contains vlmcs, a KMS test client, mainly for debugging purposes, that also can "charge" a genuine KMS server designed to run on an always-on or often-on device, e.g. router, NAS Box, ...intended to help people who lost activation of their legally-owned licenses, e.g. due to a change of hardware (motherboard, CPU, ...)
   
 ### vlmcsd is not a one-click activation or crack tool intended to activate illegal copies of software (Windows, Office, Project, Visio)
