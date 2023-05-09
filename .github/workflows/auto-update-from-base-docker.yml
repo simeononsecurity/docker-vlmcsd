@@ -11,29 +11,8 @@ jobs:
       DOCKER_PLATFORMS: linux/amd64,linux/armhf,linux/arm64
 
     steps:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       - name: Docker Image Update Checker
         id: baseupdatecheck
-=======
-      -
-        name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: master
-      - 
-		name: Check if update available
-        id: check
->>>>>>> parent of 795825c (Update auto-update-from-base-docker.yml)
-=======
-      - name: Docker Image Update Checker
-        id: baseupdatecheck
->>>>>>> parent of 5cb79ee (Merge pull request #2 from origamiofficial/master)
-=======
-      - name: Docker Image Update Checker
-        id: baseupdatecheck
->>>>>>> parent of e886e70 (Cleanup & add support for more platforms)
         uses: lucacome/docker-image-update-checker@v1
         with:
           base-image: library/alpine:latest
@@ -64,24 +43,5 @@ jobs:
         with:
           context: .
           push: true
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
           tags: simeononsecurity/docker-vlmcsd:latest
         if: steps.check.outputs.needs-updating == 'true'
-=======
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: |
-            type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache
-          cache-to: |
-            type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache,mode=max
->>>>>>> parent of 795825c (Update auto-update-from-base-docker.yml)
-=======
-          tags: simeononsecurity/docker-vlmcsd:latest
-        if: steps.check.outputs.needs-updating == 'true'
->>>>>>> parent of 5cb79ee (Merge pull request #2 from origamiofficial/master)
-=======
-          tags: simeononsecurity/docker-vlmcsd:latest
-        if: steps.check.outputs.needs-updating == 'true'
->>>>>>> parent of e886e70 (Cleanup & add support for more platforms)
