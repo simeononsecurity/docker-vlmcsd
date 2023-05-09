@@ -37,6 +37,9 @@ jobs:
         with:
           username: simeononsecurity
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+          
+      - name: Print tag
+        run: echo "${{ steps.meta.outputs.tags }}"
       -
         name: Build and push
         uses: docker/build-push-action@v4
