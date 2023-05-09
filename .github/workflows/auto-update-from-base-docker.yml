@@ -12,6 +12,7 @@ jobs:
 
     steps:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - name: Docker Image Update Checker
         id: baseupdatecheck
 =======
@@ -24,6 +25,10 @@ jobs:
 		name: Check if update available
         id: check
 >>>>>>> parent of 795825c (Update auto-update-from-base-docker.yml)
+=======
+      - name: Docker Image Update Checker
+        id: baseupdatecheck
+>>>>>>> parent of 5cb79ee (Merge pull request #2 from origamiofficial/master)
         uses: lucacome/docker-image-update-checker@v1
         with:
           base-image: library/alpine:latest
@@ -55,6 +60,7 @@ jobs:
           context: .
           push: true
 <<<<<<< HEAD
+<<<<<<< HEAD
           tags: simeononsecurity/docker-vlmcsd:latest
         if: steps.check.outputs.needs-updating == 'true'
 =======
@@ -65,3 +71,7 @@ jobs:
           cache-to: |
             type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache,mode=max
 >>>>>>> parent of 795825c (Update auto-update-from-base-docker.yml)
+=======
+          tags: simeononsecurity/docker-vlmcsd:latest
+        if: steps.check.outputs.needs-updating == 'true'
+>>>>>>> parent of 5cb79ee (Merge pull request #2 from origamiofficial/master)
