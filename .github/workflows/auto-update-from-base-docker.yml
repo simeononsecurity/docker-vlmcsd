@@ -17,7 +17,7 @@ jobs:
         with:
           ref: master
       - 
-		name: Check if update available
+	name: Check if update available
         id: check
         uses: lucacome/docker-image-update-checker@v1
         with:
