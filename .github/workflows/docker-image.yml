@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386
 
     strategy:
       matrix:
@@ -47,3 +49,26 @@ jobs:
           tags: |
             simeononsecurity/docker-vlmcsd:latest
             ghcr.io/simeononsecurity/docker-vlmcsd:latest
+            - name: Create and push Docker manifest
+            run: |
+              docker manifest create simeononsecurity/docker-vlmcsd:latest \
+                --amend ghcr.io/simeononsecurity/docker-vlmcsd:latest \
+                --amend simeononsecurity/docker-vlmcsd:latest \
+                --amend simeononsecurity/docker-vlmcsd:latest-arm64 \
+                --amend simeononsecurity/docker-vlmcsd:latest-armv7 \
+                --amend simeononsecurity/docker-vlmcsd:latest-armv6 \
+                --amend simeononsecurity/docker-vlmcsd:latest-386
+    
+              docker manifest push simeononsecurity/docker-vlmcsd:latest
+    
+              # Push manifest to GitHub Container Registry
+              docker manifest create ghcr.io/simeononsecurity/docker-vlmcsd:latest \
+                --amend ghcr.io/simeononsecurity/docker-vlmcsd:latest \
+                --amend simeononsecurity/docker-vlmcsd:latest \
+                --amend simeononsecurity/docker-vlmcsd:latest-arm64 \
+                --amend simeononsecurity/docker-vlmcsd:latest-armv7 \
+                --amend simeononsecurity/docker-vlmcsd:latest-armv6 \
+                --amend simeononsecurity/docker-vlmcsd:latest-386
+    
+              docker manifest push ghcr.io/simeononsecurity/docker-vlmcsd:latest
+    
