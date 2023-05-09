@@ -11,8 +11,19 @@ jobs:
       DOCKER_PLATFORMS: linux/amd64,linux/armhf,linux/arm64
 
     steps:
+<<<<<<< HEAD
       - name: Docker Image Update Checker
         id: baseupdatecheck
+=======
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: master
+      - 
+		name: Check if update available
+        id: check
+>>>>>>> parent of 795825c (Update auto-update-from-base-docker.yml)
         uses: lucacome/docker-image-update-checker@v1
         with:
           base-image: library/alpine:latest
@@ -43,5 +54,14 @@ jobs:
         with:
           context: .
           push: true
+<<<<<<< HEAD
           tags: simeononsecurity/docker-vlmcsd:latest
         if: steps.check.outputs.needs-updating == 'true'
+=======
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: |
+            type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache
+          cache-to: |
+            type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache,mode=max
+>>>>>>> parent of 795825c (Update auto-update-from-base-docker.yml)
