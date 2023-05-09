@@ -13,6 +13,7 @@ jobs:
     steps:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       - name: Docker Image Update Checker
         id: baseupdatecheck
 =======
@@ -29,6 +30,10 @@ jobs:
       - name: Docker Image Update Checker
         id: baseupdatecheck
 >>>>>>> parent of 5cb79ee (Merge pull request #2 from origamiofficial/master)
+=======
+      - name: Docker Image Update Checker
+        id: baseupdatecheck
+>>>>>>> parent of e886e70 (Cleanup & add support for more platforms)
         uses: lucacome/docker-image-update-checker@v1
         with:
           base-image: library/alpine:latest
@@ -61,6 +66,7 @@ jobs:
           push: true
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           tags: simeononsecurity/docker-vlmcsd:latest
         if: steps.check.outputs.needs-updating == 'true'
 =======
@@ -75,3 +81,7 @@ jobs:
           tags: simeononsecurity/docker-vlmcsd:latest
         if: steps.check.outputs.needs-updating == 'true'
 >>>>>>> parent of 5cb79ee (Merge pull request #2 from origamiofficial/master)
+=======
+          tags: simeononsecurity/docker-vlmcsd:latest
+        if: steps.check.outputs.needs-updating == 'true'
+>>>>>>> parent of e886e70 (Cleanup & add support for more platforms)
