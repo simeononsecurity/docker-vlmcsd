@@ -53,3 +53,4 @@ jobs:
             type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache
           cache-to: |
             type=registry,ref=simeononsecurity/docker-vlmcsd:buildcache,mode=max
+            
