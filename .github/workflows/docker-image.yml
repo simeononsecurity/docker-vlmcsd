@@ -34,18 +34,20 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.PAT_TOKEN }}
-
-      - name: Build and push Docker images
-        run: |
-          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes && \
-          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386 -t simeononsecurity/docker-vlmcsd:latest --progress=plain --push . && \
-          docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/386 -t ghcr.io/simeononsecurity/docker-vlmcsd:latest --progress=plain --push .
-
+          
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
+          file: Dockerfile
+          cache-from: |
+            type=gha .
+            type=inline .
+            simeononsecurity/${{ secrets.DOCKER_USERNAME }}/docker-vlmcsd:latest
+            type=registry,ref=simeononsecurity/${{ secrets.DOCKER_USERNAME }}/docker-vlmcsd:latest
+          cache-to: |
+            type=registry,ref=simeononsecurity/${{ secrets.DOCKER_USERNAME }}/docker-vlmcsd:latest
           platforms: |
             linux/amd64
             linux/arm64
@@ -53,5 +55,5 @@ jobs:
             linux/arm/v6
             linux/386
           tags: |
-            simeononsecurity/docker-vlmcsd:latest
-            ghcr.io/simeononsecurity/docker-vlmcsd:latest
+            ${{ secrets.DOCKER_USERNAME }}/docker-vlmcsd:latest
+            ghcr.io/${{ secrets.DOCKER_USERNAME }}/docker-vlmcsd:latest
